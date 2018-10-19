@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.mx.cherry.inventario"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath false
+            }
+        }
+        
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+apply from: 'dependencies.gradle'
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation supportDepsLibs
+    implementation multiDexLibs
+    implementation butterknifeLibs
+    implementation findBugsLibs
+
+    //Gestion de permisos
+    implementation "com.karumi:dexter:$versions.dexter"
+
+    //Control de hora y fecha
+    implementation group: 'joda-time', name: 'joda-time', version: "$versions.jodaTime"
+
+    //Procesar las anotaciones de la inyeccion de dependencias
+    annotationProcessor "com.jakewharton:butterknife-compiler:$versions.butterknifeCompiler"
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
