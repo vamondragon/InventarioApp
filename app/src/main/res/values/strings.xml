@@ -8,7 +8,7 @@
     <string name="ayuda_biometric">Codigo de ayuda %1$s • Mensaje %2$s.</string>
     <string name="error_biometric">Codigo de error %1$s • Mensaje %2$s.</string>
 
-    <string name="biometric_dialog_title"></string>
+    <string name="title">Inventario Dulces</string>
     <string name="biometric_dialog_subtitle">Huella digital para App</string>
     <string name="biometric_dialog_description">Inicia sesión con tu huella digital</string>
     <string name="biometric_dialog_cancel_button">Cancelar</string>
@@ -22,5 +22,12 @@
 
     <dimen name="default_dot_diameter">8dp</dimen>
     <dimen name="default_dot_spacing">8dp</dimen>
+
+
+
+    <!-- Permission Request -->
+    <string name="warnig_permissions">Necesita proporcionar permisos para usar la aplicación</string>
+    <string name="acept_label">Aceptar</string>
+
 
 </resources>
