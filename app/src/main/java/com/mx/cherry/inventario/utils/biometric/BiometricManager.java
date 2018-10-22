@@ -23,7 +23,7 @@ public class BiometricManager extends BiometricManagerMarshmallow {
     @TargetApi(Build.VERSION_CODES.M)
     public void authenticate(@NonNull final BiometricCallback biometricCallback) {
 
-        if (title == null || subtitle == null || description == null || negativeButtonText == null) {
+        if ( subtitle == null || description == null || negativeButtonText == null) {
             throw new IllegalArgumentException("Dialog elements cannot be null");
         }
 

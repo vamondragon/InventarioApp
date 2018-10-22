@@ -63,7 +63,6 @@ public class BiometricManagerMarshmallow {
                         @Override
                         public void onAuthenticationError(int errorCode, CharSequence errString) {
                             super.onAuthenticationError(errorCode, errString);
-                            updateStatus(String.valueOf(errString));
 
                             codigosError = String.format(Common.getString(context, R.string.error_biometric),
                                     errorCode, errString);
@@ -74,7 +73,6 @@ public class BiometricManagerMarshmallow {
                         @Override
                         public void onAuthenticationHelp(int helpCode, CharSequence helpString) {
                             super.onAuthenticationHelp(helpCode, helpString);
-                            updateStatus(String.valueOf(helpString));
 
                             codigosError = String.format(Common.getString(context, R.string.ayuda_biometric),
                                     helpCode, helpString);
@@ -92,7 +90,6 @@ public class BiometricManagerMarshmallow {
                         @Override
                         public void onAuthenticationFailed() {
                             super.onAuthenticationFailed();
-                            updateStatus(context.getString(R.string.biometric_failed));
                             biometricCallback.onAuthenticationResult(false, context.getString(R.string.biometric_error));
                         }
                     }, null);
@@ -106,7 +103,6 @@ public class BiometricManagerMarshmallow {
         biometricDialogMarshmallow = new BiometricDialogMarshmallow(context, biometricCallback);
         biometricDialogMarshmallow.setTitle(title);
         biometricDialogMarshmallow.setSubtitle(subtitle);
-        biometricDialogMarshmallow.setDescription(description);
         biometricDialogMarshmallow.setButtonText(negativeButtonText);
         biometricDialogMarshmallow.show();
         biometricDialogMarshmallow.setCancelable(false);
@@ -119,11 +115,6 @@ public class BiometricManagerMarshmallow {
         }
     }
 
-    private void updateStatus(String status) {
-        if (biometricDialogMarshmallow != null) {
-            biometricDialogMarshmallow.updateStatus(status);
-        }
-    }
 
     private void generateKey() {
         try {

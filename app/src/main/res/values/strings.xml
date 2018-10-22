@@ -2,16 +2,25 @@
     <string name="app_name">Inventario</string>
 
 
-
-    <!-- Label para el uso de lector biometrico -->
+    <!-- Tamaños para el uso de lector biometrico -->
     <string name="biometric_failed">Huella digital no reconocida</string>
     <string name="biometric_error">Error al autenticar</string>
     <string name="ayuda_biometric">Codigo de ayuda %1$s • Mensaje %2$s.</string>
     <string name="error_biometric">Codigo de error %1$s • Mensaje %2$s.</string>
 
-    <string name="biometric_dialog_title">Add a title</string>
-    <string name="biometric_dialog_subtitle">Add a subtitle</string>
-    <string name="biometric_dialog_description">Add a description</string>
-    <string name="biometric_dialog_cancel_button">Add a cancel button</string>
+    <string name="biometric_dialog_title"></string>
+    <string name="biometric_dialog_subtitle">Huella digital para App</string>
+    <string name="biometric_dialog_description">Inicia sesión con tu huella digital</string>
+    <string name="biometric_dialog_cancel_button">Cancelar</string>
+
+    <!-- Tamaños para el pin de desbloqueo-->
+    <dimen name="default_text_size">16sp</dimen>
+    <dimen name="default_button_size">60dp</dimen>
+    <dimen name="default_delete_button_size">16dp</dimen>
+    <dimen name="default_horizontal_spacing">32dp</dimen>
+    <dimen name="default_vertical_spacing">0dp</dimen>
+
+    <dimen name="default_dot_diameter">8dp</dimen>
+    <dimen name="default_dot_spacing">8dp</dimen>
 
 </resources>

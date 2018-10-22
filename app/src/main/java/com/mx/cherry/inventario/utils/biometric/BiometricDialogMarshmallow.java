@@ -18,8 +18,7 @@ public class BiometricDialogMarshmallow extends BottomSheetDialog implements Vie
     private Context context;
 
     private Button btnCancel;
-    private ImageView imgLogo;
-    private TextView itemTitle, itemDescription, itemSubtitle, itemStatus;
+    private TextView itemTitle, itemSubtitle;
 
     private BiometricCallback biometricCallback;
 
@@ -51,43 +50,23 @@ public class BiometricDialogMarshmallow extends BottomSheetDialog implements Vie
         btnCancel = findViewById(R.id.btn_cancel);
         btnCancel.setOnClickListener(this);
 
-        imgLogo = findViewById(R.id.img_logo);
         itemTitle = findViewById(R.id.item_title);
-        itemStatus = findViewById(R.id.item_status);
         itemSubtitle = findViewById(R.id.item_subtitle);
-        itemDescription = findViewById(R.id.item_description);
 
-        updateLogo();
     }
 
     public void setTitle(String title) {
         itemTitle.setText(title);
     }
 
-    public void updateStatus(String status) {
-        itemStatus.setText(status);
-    }
 
     public void setSubtitle(String subtitle) {
         itemSubtitle.setText(subtitle);
     }
 
-    public void setDescription(String description) {
-        itemDescription.setText(description);
-    }
 
     public void setButtonText(String negativeButtonText) {
         btnCancel.setText(negativeButtonText);
-    }
-
-    private void updateLogo() {
-        try {
-            Drawable drawable = getContext().getPackageManager().getApplicationIcon(context.getPackageName());
-            imgLogo.setImageDrawable(drawable);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 

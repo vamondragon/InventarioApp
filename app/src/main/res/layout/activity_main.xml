@@ -1,9 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif-thin"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="Welcome"
+            android:textColor="@color/bg_fingerprint"
+            android:textSize="34sp" />
+
+        <com.mx.cherry.inventario.utils.pinlock.IndicatorDots
+            android:id="@+id/indicator_dots"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profile_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center" />
+
+        <com.mx.cherry.inventario.utils.pinlock.PinLockView
+            android:id="@+id/pin_lock_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/indicator_dots"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            app:keypadButtonSize="80dp"
+            app:keypadShowDeleteButton="true"
+            app:keypadTextColor="@color/white"
+            app:keypadTextSize="15dp" />
+
+        <Button
+            android:id="@+id/entrar_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dialog_subtitle"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/biometric_bottom_sheet_padding"
+            android:layout_alignParentBottom = "true"
+            android:text="Button" />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
