@@ -3,7 +3,7 @@ package com.mx.cherry.inventario.utils.biometric;
 import android.content.Context;
 import android.hardware.biometrics.BiometricPrompt;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 
 import com.mx.cherry.inventario.R;
 import com.mx.cherry.inventario.utils.Common;

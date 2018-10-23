@@ -16,7 +16,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-
         <activity
             android:name=".splashmodule.presentation.ui.SplashActivity"
             android:launchMode="singleTask"
@@ -30,10 +29,15 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+
+        <activity
+            android:name=".inboxmodule.InboxActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 

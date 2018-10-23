@@ -1,24 +1,28 @@
 ext {
 
     versions = [
-            support         : '28.0.0',
-            constraintLayout: '1.1.3',
-            multidex        : '1.0.1',
-            jodaTime        : '2.3',
-            dexter          : '4.2.0',
-            butterKnife     : '8.5.1',
-            butterknifeCompiler: '8.8.1',
-            findbugs        : 'jsr305:3.0.1'
+            support            : '28.0.0',
+            constraintLayout   : '2.0.0-alpha2',
+            multidex           : '1.0.1',
+            jodaTime           : '2.3',
+            dexter             : '4.2.0',
+            lottieVersion      : '2.8.0',
+            butterKnife        : '9.0.0-rc1',
+            butterknifeCompiler: '9.0.0-rc1',
+            findbugs           : 'jsr305:3.0.1'
     ]
 
     //UI
     supportDeps = [
-            appcompatV7 : "com.android.support:appcompat-v7:$versions.support",
-            cardView    : "com.android.support:cardview-v7:$versions.support",
-            recyclerView: "com.android.support:recyclerview-v7:$versions.support",
-            design      : "com.android.support:design:$versions.support",
-            appSupport  : "com.android.support:support-v4:$versions.support",
-            constraint  : "com.android.support.constraint:constraint-layout:$versions.constraintLayout"
+            appcompatV7     : "com.android.support:appcompat-v7:$versions.support",
+            cardView        : "com.android.support:cardview-v7:$versions.support",
+            recyclerView    : "com.android.support:recyclerview-v7:$versions.support",
+            design          : "com.android.support:design:$versions.support",
+            appSupport      : "com.android.support:support-v4:$versions.support",
+            constraint      : "androidx.constraintlayout:constraintlayout:$versions.constraintLayout",
+
+            supporAnotations: "com.android.support:support-annotations:$versions.support"
+
     ]
 
     //MultiDex

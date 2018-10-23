@@ -1,15 +1,18 @@
 package com.mx.cherry.inventario;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.mx.cherry.inventario.inboxmodule.InboxActivity;
 import com.mx.cherry.inventario.utils.biometric.BiometricCallback;
 import com.mx.cherry.inventario.utils.biometric.BiometricManager;
 import com.mx.cherry.inventario.utils.biometric.BiometricUtils;
@@ -17,8 +20,10 @@ import com.mx.cherry.inventario.utils.pinlock.IndicatorDots;
 import com.mx.cherry.inventario.utils.pinlock.PinLockListener;
 import com.mx.cherry.inventario.utils.pinlock.PinLockView;
 
+import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity {
+
+public class LoginActivity extends AppCompatActivity {
 
     private PinLockView mPinLockView;
     private IndicatorDots mIndicatorDots;
@@ -56,19 +61,27 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
-                BiometricUtils.isPermissionGranted(MainActivity.this) &&
-                BiometricUtils.isHardwareSupported(MainActivity.this) &&
-                BiometricUtils.isFingerprintAvailable(MainActivity.this)) {
+                BiometricUtils.isPermissionGranted(LoginActivity.this) &&
+                BiometricUtils.isHardwareSupported(LoginActivity.this) &&
+                BiometricUtils.isFingerprintAvailable(LoginActivity.this)) {
 
-            new BiometricManager.BiometricBuilder(MainActivity.this)
-                    .setTitle(getString(R.string.biometric_dialog_subtitle))
-                    .setSubtitle(getString(R.string.biometric_dialog_description))
+            new BiometricManager.BiometricBuilder(LoginActivity.this)
+                    .setTitle(getString(R.string.biometric_dialog_description))
                     .setDescription(getString(R.string.biometric_dialog_description))
                     .setNegativeButtonText(getString(R.string.biometric_dialog_cancel_button))
                     .build()
                     .authenticate(new BiometricCallback() {
                         @Override
                         public void onAuthenticationResult(Object isSuccessful, Object message) {
+                            if (Boolean.parseBoolean(isSuccessful.toString())) {
+
+                                Intent executeIntent = new Intent(LoginActivity.this, InboxActivity.class);
+                                executeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                executeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(executeIntent);
+                                finish();
+
+                            }
 
                         }
 

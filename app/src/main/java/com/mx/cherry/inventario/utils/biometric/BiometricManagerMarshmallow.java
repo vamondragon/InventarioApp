@@ -6,8 +6,8 @@ import android.os.Build;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyPermanentlyInvalidatedException;
 import android.security.keystore.KeyProperties;
-import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
-import android.support.v4.os.CancellationSignal;
+import androidx.core.hardware.fingerprint.FingerprintManagerCompat;
+import androidx.core.os.CancellationSignal;
 
 import com.mx.cherry.inventario.R;
 import com.mx.cherry.inventario.utils.Common;
@@ -43,7 +43,6 @@ public class BiometricManagerMarshmallow {
     protected Context context;
 
     protected String title;
-    protected String subtitle;
     protected String description;
     protected String negativeButtonText;
     private BiometricDialogMarshmallow biometricDialogMarshmallow;
@@ -102,7 +101,6 @@ public class BiometricManagerMarshmallow {
     private void displayBiometricDialog(final BiometricCallback biometricCallback) {
         biometricDialogMarshmallow = new BiometricDialogMarshmallow(context, biometricCallback);
         biometricDialogMarshmallow.setTitle(title);
-        biometricDialogMarshmallow.setSubtitle(subtitle);
         biometricDialogMarshmallow.setButtonText(negativeButtonText);
         biometricDialogMarshmallow.show();
         biometricDialogMarshmallow.setCancelable(false);

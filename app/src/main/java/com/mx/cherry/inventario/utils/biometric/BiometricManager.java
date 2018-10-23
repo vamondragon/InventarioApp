@@ -5,7 +5,7 @@ import android.content.Context;
 import android.hardware.biometrics.BiometricPrompt;
 import android.os.Build;
 import android.os.CancellationSignal;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 
 public class BiometricManager extends BiometricManagerMarshmallow {
@@ -14,7 +14,6 @@ public class BiometricManager extends BiometricManagerMarshmallow {
     protected BiometricManager(final BiometricBuilder biometricBuilder) {
         this.context = biometricBuilder.context;
         this.title = biometricBuilder.title;
-        this.subtitle = biometricBuilder.subtitle;
         this.description = biometricBuilder.description;
         this.negativeButtonText = biometricBuilder.negativeButtonText;
     }
@@ -23,7 +22,7 @@ public class BiometricManager extends BiometricManagerMarshmallow {
     @TargetApi(Build.VERSION_CODES.M)
     public void authenticate(@NonNull final BiometricCallback biometricCallback) {
 
-        if ( subtitle == null || description == null || negativeButtonText == null) {
+        if ( title == null || description == null || negativeButtonText == null) {
             throw new IllegalArgumentException("Dialog elements cannot be null");
         }
 
@@ -60,7 +59,6 @@ public class BiometricManager extends BiometricManagerMarshmallow {
     private void displayBiometricPrompt(final BiometricCallback biometricCallback) {
         new BiometricPrompt.Builder(context)
                 .setTitle(title)
-                .setSubtitle(subtitle)
                 .setDescription(description)
                 .setNegativeButton(negativeButtonText, context.getMainExecutor(), (dialogInterface, i) -> biometricCallback.onAuthenticationCancelled())
                 .build()
@@ -72,7 +70,6 @@ public class BiometricManager extends BiometricManagerMarshmallow {
     public static class BiometricBuilder {
 
         private String title;
-        private String subtitle;
         private String description;
         private String negativeButtonText;
 
@@ -87,10 +84,6 @@ public class BiometricManager extends BiometricManagerMarshmallow {
             return this;
         }
 
-        public BiometricBuilder setSubtitle(@NonNull final String subtitle) {
-            this.subtitle = subtitle;
-            return this;
-        }
 
         public BiometricBuilder setDescription(@NonNull final String description) {
             this.description = description;

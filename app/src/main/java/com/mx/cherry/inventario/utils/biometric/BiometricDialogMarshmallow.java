@@ -2,12 +2,11 @@ package com.mx.cherry.inventario.utils.biometric;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomSheetDialog;
+
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mx.cherry.inventario.R;
@@ -18,7 +17,7 @@ public class BiometricDialogMarshmallow extends BottomSheetDialog implements Vie
     private Context context;
 
     private Button btnCancel;
-    private TextView itemTitle, itemSubtitle;
+    private TextView itemTitle;
 
     private BiometricCallback biometricCallback;
 
@@ -51,17 +50,11 @@ public class BiometricDialogMarshmallow extends BottomSheetDialog implements Vie
         btnCancel.setOnClickListener(this);
 
         itemTitle = findViewById(R.id.item_title);
-        itemSubtitle = findViewById(R.id.item_subtitle);
 
     }
 
     public void setTitle(String title) {
         itemTitle.setText(title);
-    }
-
-
-    public void setSubtitle(String subtitle) {
-        itemSubtitle.setText(subtitle);
     }
 
 

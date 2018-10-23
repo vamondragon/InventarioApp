@@ -3,13 +3,13 @@ package com.mx.cherry.inventario.splashmodule.presentation.ui;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
-import com.mx.cherry.inventario.MainActivity;
+import com.mx.cherry.inventario.LoginActivity;
 import com.mx.cherry.inventario.R;
 import com.mx.cherry.inventario.genericdomain.impl.ThreadExecutor;
 import com.mx.cherry.inventario.splashmodule.presentation.presenters.PermissionsPresenter;
@@ -98,7 +98,7 @@ public class SplashActivity extends AppCompatActivity implements PermissionsPres
 
     private void iniciarPantallaLogin() {
 
-        executeIntent = new Intent(this, MainActivity.class);
+        executeIntent = new Intent(this, LoginActivity.class);
 
         //Ejecuta el intent requerido
         TimerTask timerTask = new TimerTask() {
